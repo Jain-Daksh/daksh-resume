@@ -246,19 +246,83 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="form ContactForm" id='contactus' onSubmit={handleSubmit(onSubmit)} noValidate>
-      <div className="container app__wrapper app__flex">
-        <div className='row address-display'>
-        
-        </div>
-        <div className="row">
-          <div className="col-md-6 contact-image">
-            <img src={images.contact} className="img-fluid mt-5" />
+    // <section className="form ContactForm" id='contactus' onSubmit={handleSubmit(onSubmit)} noValidate>
+    //   <div className="container ">
+    //     <div className="row">
+    //       <div className="col-md-6 contact-image">
+    //         <img src={images.ContactUS} className="img-fluid mt-5" />
+    //       </div>
+    //       <div className='col-6'>
+    //         <div className='contactForm'>
+    //           <form id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
+    //           <h2 className="head-text">Contact Us</h2>
+    //             <div className='formRow'>
+    //               <div className="mb-3">
+    //                 <label for="exampleInputName" className="form-label" name="name">Name</label>
+    //                 <input type="text" {...register('name', {
+    //                   required: { value: true, message: 'Please enter your name' },
+    //                   maxLength: {
+    //                     value: 30,
+    //                     message: 'Please use 30 characters or less'
+    //                   }
+    //                 })} className="form-control" id="exampleInputName" aria-describedby="NameHelp" required />
+
+    //               </div>
+    //               {errors.name && <span className='errorMessage'>{errors.name.message}</span>}
+    //               <div className="mb-3">
+    //                 <label for="exampleInputEmail1" className="form-label" name="email" >Email address</label>
+    //                 <input type="email" {...register('email', {
+    //                   required: true,
+    //                   pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    //                 })} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
+    //                 {errors.email && (
+    //                   <span className='errorMessage'>Please enter a valid email address</span>
+    //                 )}
+    //               </div>
+    //             </div>
+    //             <div className="mb-3">
+    //               <label for="exampleInputtext" className="form-label" name="text" >Subject </label>
+    //               <input type="email" {...register('subject', {
+    //                 required: { value: true, message: 'Please enter a subject' },
+    //                 maxLength: {
+    //                   value: 75,
+    //                   message: 'Subject cannot exceed 75 characters'
+    //                 }
+    //               })} className="form-control" id="exampleInputtext" aria-describedby="textHelp" required />
+    //               {errors.email && (
+    //                 <span className='errorMessage'>Please enter a subject</span>
+    //               )}
+    //             </div>
+    //             <div className="mb-3">
+    //               <label for="message" className="form-label" name="message" >Message</label>
+    //               <textarea type="text"  {...register('message', {
+    //                 required: true
+    //               })} className="form-control" id="exampleInputMessage" rows="4" required></textarea>
+    //             </div>
+    //             <button className='"btn btn-primary form-control' type='submit'>
+    //               Submit
+    //             </button>
+    //           </form>
+    //         </div>
+    //         <ToastContainer />
+    //       </div>
+    //     </div>
+    //     <div className='container'>
+    //       <div className='row'>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </section>
+    <>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-xl-6'>
+            <img src={images.ContactUS} className="img-fluid mt-5" />
           </div>
-          <div className='col-6'>
+          <div className='col-xl-6'>
             <div className='contactForm'>
-              <form id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
               <h2 className="head-text">Contact Us</h2>
+              <form id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className='formRow'>
                   <div className="mb-3">
                     <label for="exampleInputName" className="form-label" name="name">Name</label>
@@ -302,20 +366,15 @@ const ContactForm = () => {
                     required: true
                   })} className="form-control" id="exampleInputMessage" rows="4" required></textarea>
                 </div>
-                <button className='"btn btn-primary form-control' type='submit'>
+                <button className='"btn contactus-button form-control' type='submit'>
                   Submit
                 </button>
               </form>
             </div>
-            <ToastContainer />
-          </div>
-        </div>
-        <div className='container'>
-          <div className='row'>
           </div>
         </div>
       </div>
-    </section>
+    </>
   );
 };
 
