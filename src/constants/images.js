@@ -42,6 +42,12 @@ import Nextjs from '../assets/Nextjs-logo.svg';
 
 import contact from '../assets/contact.jpg';
 
+import backEnd from '../assets/Developer activity-pana.svg';
+import frontEnd from '../assets/Programmer.gif';
+// import WebDeveloper from '../assets/Cross-platform software-pana.svg';
+
+import WebDeveloper from '../assets/Programming-rafiki.svg';
+
 export default {
   email,
   mobile,
@@ -81,6 +87,9 @@ export default {
   address_image,
   mysql,
   Nextjs,
-  contact
+  contact,
+  frontEnd,
+  backEnd,
+  WebDeveloper
 };
 

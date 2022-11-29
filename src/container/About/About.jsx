@@ -2,46 +2,30 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './about.css';
 import { images } from '../../constants';
-// import { urlFor, client } from '../../Client';
 import { AppWrap, MotionWrap } from '../../wrapper/index';
 
 const abouts = [
   {
     id: 1,
     title: "Web Development",
-    description: "lorem",
-    imgurl: images.about01
+    description: "",
+    imgurl: images.WebDeveloper
   },
   {
     id: 2,
     title: "Front End Developer",
-    description: "lorem",
-    imgurl: images.backend
+    description: "",
+    imgurl: images.frontEnd
   },
   {
     id: 3,
-    title: "Front End Developer",
-    description: "lorem",
-    imgurl: images.about01
+    title: "Back End Developer",
+    description: "",
+    imgurl: images.backEnd
   },
-  {
-    id: 3,
-    title: "PERN Developer",
-    description: "lorem",
-    imgurl: images.about01
-  }
 ]
 
 const About = () => {
-//   const [abouts, setAbouts] = useState([]);
-
-//   useEffect(() => {
-//     const query = '*[_type == "abouts"]';
-
-//     client.fetch(query).then((data) => {
-//       setAbouts(data);
-//     });
-//   }, []);
   return (
     <div>
       <h2 className="head-text">I Know that <span>Good Design</span> <br />means  <span>Good Business</span></h2>
@@ -54,7 +38,6 @@ const About = () => {
             className="app__profile-item"
             key={about.id}
           >
-            {/* <img src={urlFor(about.imgUrl)} alt={about.title} /> */}
             <img src={(about.imgurl)} alt={about.title} />
             <h2 className="bold-text" style={{ marginTop: 20 }}>{about.title}</h2>
             <p className="p-text" style={{ marginTop: 10 }}>{about.description}</p>

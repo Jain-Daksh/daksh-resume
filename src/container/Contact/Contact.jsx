@@ -196,6 +196,7 @@ import emailjs from 'emailjs-com';
 import { images } from '../../constants';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import { AppWrap, MotionWrap } from '../../wrapper/index';
 const ContactForm = () => {
   const {
     register,
@@ -245,232 +246,72 @@ const ContactForm = () => {
   };
 
   return (
-    // <div className='ContactForm'>
-    //   <div className='container'>
-    //     <div className='row'>
-    //       <div className='col-12 text-center'>
-    //         <div className='contactForm'>
-    //           <form id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
-    //             <div className='row formRow'>
-    //               <div className='col-6'>
-    //                 <input
-    //                   type='text'
-    //                   name='name'
-    //                   {...register('name', {
-    //                     required: { value: true, message: 'Please enter your name' },
-    //                     maxLength: {
-    //                       value: 30,
-    //                       message: 'Please use 30 characters or less'
-    //                     }
-    //                   })}
-    //                   className='form-control formInput'
-    //                   placeholder='Name'
-    //                 ></input>
-    //                 {errors.name && <span className='errorMessage'>{errors.name.message}</span>}
-    //               </div>
-    //               <div className='col-6'>
-    //                 <input
-    //                   type='email'
-    //                   name='email'
-    //                   {...register('email', {
-    //                     required: true,
-    //                     pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-    //                   })}
-    //                   className='form-control formInput'
-    //                   placeholder='Email address'
-    //                 ></input>
-    //                 {errors.email && (
-    //                   <span className='errorMessage'>Please enter a valid email address</span>
-    //                 )}
-    //               </div>
-    //             </div>
-    //             <div className='row formRow'>
-    //               <div className='col'>
-    //                 <input
-    //                   type='text'
-    //                   name='subject'
-    //                   {...register('subject', {
-    //                     required: { value: true, message: 'Please enter a subject' },
-    //                     maxLength: {
-    //                       value: 75,
-    //                       message: 'Subject cannot exceed 75 characters'
-    //                     }
-    //                   })}
-    //                   className='form-control formInput'
-    //                   placeholder='Subject'
-    //                 ></input>
-    //                 {errors.subject && (
-    //                   <span className='errorMessage'>{errors.subject.message}</span>
-    //                 )}
-    //               </div>
-    //             </div>
-    //             <div className='row formRow'>
-    //               <div className='col'>
-    //                 <textarea
-    //                   rows={3}
-    //                   name='message'
-    //                   {...register('message', {
-    //                     required: true
-    //                   })}
-    //                   className='form-control formInput'
-    //                   placeholder='Message'
-    //                 ></textarea>
-    //                 {errors.message && <span className='errorMessage'>Please enter a message</span>}
-    //               </div>
-    //             </div>
-    //             <button className='submit-btn' type='submit'>
-    //               Submit
-    //             </button>
-    //           </form>
-    //         </div>
-    //         <ToastContainer />
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
     <section className="form ContactForm" id='contactus' onSubmit={handleSubmit(onSubmit)} noValidate>
-      <div className="container">
+      <div className="container app__wrapper app__flex">
+        <div className='row address-display'>
+        
+        </div>
         <div className="row">
           <div className="col-md-6 contact-image">
-            <img src={images.contact} className="img-fluid" />
+            <img src={images.contact} className="img-fluid mt-5" />
           </div>
-          {/* <div className="col-md-6">
-            <h2>Let's talk</h2>
-            <p>To request a quote or want to meet up for coffee, contact us directly or fill out the form and we will get back to you promptly</p>
-
-            <form className="form-info">
-              <div className="mb-3">
-                <label for="exampleInputName" className="form-label" name="name">Name</label>
-                <input type="text" {...register('name', {
-                  required: {
-                    value: true,
-                    message: "You must enter your name"
-                  },
-                  minLength: {
-                    value: 2,
-                    message: "name cannot be less than 2"
-                  },
-                  pattern: {
-                    pattern: /^[A-Za-z]+$/
-
-                  },
-                  maxLength: {
-                    value: 75,
-                    message: "name cannot be more than 75"
-                  },
-
-                })} className="form-control" id="exampleInputName" aria-describedby="NameHelp" required />
-
-                <span id="nameerror" className="text-danger font-weight-bold" ></span>
-                {errors.name && <p>Please check the name , name cannot be less than 2 </p>}
-
-              </div>
-              <div className="mb-3">
-                <label for="exampleInputEmail1" className="form-label" name="email" >Email address</label>
-                <input type="email" {...register("email", {
-                  required: {
-                    value: true,
-                    message: "You must enter your Email"
-                  }, minLength: {
-                    value: 10,
-                    message: "Email cannot be less than 5"
-                  },
-                  pattern: {
-                    pattern: /^[A-Za-z]+$/
-
-                  },
-                  maxLength: {
-                    value: 75,
-                    message: "Email cannot be more than 75"
-                  },
-                })} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
-                <span id="emailerror" className="text-danger font-weight-bold" ></span>
-                {errors.email && <p>Please check the Email</p>}
-
-              </div>
-              <div className="mb-3">
-                <label for="message" className="form-label" name="message" >Message</label>
-                <textarea type="text"{...register("message")} className="form-control" id="exampleInputMessage" rows="4" required></textarea>
-              </div>
-              <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btn btn-primary form-control">Send Message</button>
-            </form>
-          </div> */}
-<div className='col-6'>
-              <div className='contactForm'>
-                <form id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
-                  <div className='formRow'>
-
-                    {/* <label for="exampleInputName" className="form-label" name="name">Name</label> */}
-                    {/* <input
-                      type='text'
-                      name='name'
-                      {...register('name', {
-                        required: { value: true, message: 'Please enter your name' },
-                        maxLength: {
-                          value: 30,
-                          message: 'Please use 30 characters or less'
-                        }
-                      })}
-                      className='form-control formInput'
-                      placeholder='Name'
-                    ></input> */}
-                    <div className="mb-3">
-                      <label for="exampleInputName" className="form-label" name="name">Name</label>
-                      <input type="text" {...register('name', {
-                        required: { value: true, message: 'Please enter your name' },
-                        maxLength: {
-                          value: 30,
-                          message: 'Please use 30 characters or less'
-                        }
-                      })} className="form-control" id="exampleInputName" aria-describedby="NameHelp" required />
-
-                    </div>
-                    {errors.name && <span className='errorMessage'>{errors.name.message}</span>}
-
-
-                    <div className="mb-3">
-                      <label for="exampleInputEmail1" className="form-label" name="email" >Email address</label>
-                      <input type="email" {...register('email', {
-                        required: true,
-                        pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-                      })} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
-                      {errors.email && (
-                        <span className='errorMessage'>Please enter a valid email address</span>
-                      )}
-
-                    </div>
-                  </div>
-
+          <div className='col-6'>
+            <div className='contactForm'>
+              <form id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
+              <h2 className="head-text">Contact Us</h2>
+                <div className='formRow'>
                   <div className="mb-3">
-                    <label for="exampleInputtext" className="form-label" name="text" >Subject </label>
-                    <input type="email" {...register('subject', {
-                      required: { value: true, message: 'Please enter a subject' },
+                    <label for="exampleInputName" className="form-label" name="name">Name</label>
+                    <input type="text" {...register('name', {
+                      required: { value: true, message: 'Please enter your name' },
                       maxLength: {
-                        value: 75,
-                        message: 'Subject cannot exceed 75 characters'
+                        value: 30,
+                        message: 'Please use 30 characters or less'
                       }
-                    })} className="form-control" id="exampleInputtext" aria-describedby="textHelp" required />
+                    })} className="form-control" id="exampleInputName" aria-describedby="NameHelp" required />
+
+                  </div>
+                  {errors.name && <span className='errorMessage'>{errors.name.message}</span>}
+                  <div className="mb-3">
+                    <label for="exampleInputEmail1" className="form-label" name="email" >Email address</label>
+                    <input type="email" {...register('email', {
+                      required: true,
+                      pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+                    })} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
                     {errors.email && (
-                      <span className='errorMessage'>Please enter a subject</span>
+                      <span className='errorMessage'>Please enter a valid email address</span>
                     )}
                   </div>
-                  <div className="mb-3">
-                    <label for="message" className="form-label" name="message" >Message</label>
-                    <textarea type="text"  {...register('message', {
-                      required: true
-                    })} className="form-control" id="exampleInputMessage" rows="4" required></textarea>
-                  </div>
-                  <button className='"btn btn-primary form-control' type='submit'>
-                    Submit
-                  </button>
-                </form>
-              </div>
-              <ToastContainer />
+                </div>
+                <div className="mb-3">
+                  <label for="exampleInputtext" className="form-label" name="text" >Subject </label>
+                  <input type="email" {...register('subject', {
+                    required: { value: true, message: 'Please enter a subject' },
+                    maxLength: {
+                      value: 75,
+                      message: 'Subject cannot exceed 75 characters'
+                    }
+                  })} className="form-control" id="exampleInputtext" aria-describedby="textHelp" required />
+                  {errors.email && (
+                    <span className='errorMessage'>Please enter a subject</span>
+                  )}
+                </div>
+                <div className="mb-3">
+                  <label for="message" className="form-label" name="message" >Message</label>
+                  <textarea type="text"  {...register('message', {
+                    required: true
+                  })} className="form-control" id="exampleInputMessage" rows="4" required></textarea>
+                </div>
+                <button className='"btn btn-primary form-control' type='submit'>
+                  Submit
+                </button>
+              </form>
             </div>
+            <ToastContainer />
+          </div>
         </div>
         <div className='container'>
           <div className='row'>
-            
           </div>
         </div>
       </div>
@@ -478,4 +319,8 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default AppWrap(
+  MotionWrap(ContactForm, 'app__skills'),
+  'contact',
+  'app__primarybg',
+);

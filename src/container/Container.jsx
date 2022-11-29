@@ -13,7 +13,6 @@ const Container = () => {
       <About />
       <Work />
       <Skills />
-      <Testimonial />
       <Footer />
 
     </div>
