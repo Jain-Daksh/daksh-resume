@@ -45,10 +45,15 @@ import contact from '../assets/contact.jpg';
 import backEnd from '../assets/Developer activity-pana.svg';
 import frontEnd from '../assets/Programmer.gif';
 // import WebDeveloper from '../assets/Cross-platform software-pana.svg';
-
 import ContactUS from '../assets/Get in touch-cuate.svg';
-
 import WebDeveloper from '../assets/Programming-rafiki.svg';
+
+import gurukul from '../assets/gurukul.png'
+import Mahalaxmi from '../assets/Mahalaxmi.png'
+import laWebsite from '../assets/la-website.png'
+import hotelCamp from '../assets/hotel-camp.png'
+import alvrio from '../assets/alvrio.png'
+import vinakya from '../assets/vinakya.png'
 
 export default {
   email,
@@ -93,6 +98,12 @@ export default {
   frontEnd,
   backEnd,
   WebDeveloper,
-  ContactUS
+  ContactUS,
+  gurukul,
+  Mahalaxmi,
+  alvrio,
+  laWebsite,
+  hotelCamp,
+  vinakya
 };
 
